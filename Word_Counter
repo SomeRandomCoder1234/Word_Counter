@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <form>
+            <label for = "sentence">Enter Your Sentence:</label>
+            <input id = "sentence" type = "text" placeholder = "John eats apples." oninput = "countWords()">
+        </form>
+        <p id = "wordcount"></p>
+        <script>
+            function countWords() {
+                let count = 0;
+                let check = false;
+                let str = document.getElementById("sentence").value
+
+                for (let i = 0; i < str.length; i++) {
+                    if (str[i] !== ' ' && !check) {
+                        count++;
+                        check = true;
+                    } else if (str[i] === ' ') {
+                        check = false;
+                    }
+                }
+
+                document.getElementById("wordcount").innerHTML = "Word Count: " + count
+            }
+        </script>
+    </body>
+</html>
